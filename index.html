@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <style>
+        /* CSS Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .todo-list {
+            width: 300px;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .todo-item {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+        .todo-item:last-child {
+            border-bottom: none;
+        }
+        .todo-item input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        .add-item {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .add-item:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="todo-list">
+    <h2>To-Do List</h2>
+    <ul id="todoList">
+        <li class="todo-item">
+            <input type="checkbox">
+            Buy groceries
+        </li>
+        <li class="todo-item">
+            <input type="checkbox">
+            Finish project
+        </li>
+        <li class="todo-item">
+            <input type="checkbox">
+            Call John
+        </li>
+    </ul>
+    <input type="text" id="newItem" placeholder="Add new item">
+    <button class="add-item" onclick="addItem()">Add</button>
+
+    <script>
+        // Basic JavaScript to add items dynamically
+        function addItem() {
+            let input = document.getElementById('newItem');
+            let list = document.getElementById('todoList');
+            let item = input.value;
+            if (item !== '') {
+                let li = document.createElement('li');
+                li.className = 'todo-item';
+                li.innerHTML = '<input type="checkbox">' + item;
+                list.appendChild(li);
+                input.value = '';
+            }
+        }
+    </script>
+</div>
+
+</body>
+</html>
